@@ -1,7 +1,7 @@
 # Interpretable All-Type Audio Deepfake Detection with Audio LLMs via Frequency–Time Reinforcement Learning
 
 <p align="center">
-  <a href="https://add-ft-grpo.space">
+  <a href="https://xieyuankun.github.io/FT-GRPO/">
     <img src="https://img.shields.io/badge/🏠%20Home%20Page-FT--GRPO-ff7f0e?style=for-the-badge">
   </a>
   &nbsp;
