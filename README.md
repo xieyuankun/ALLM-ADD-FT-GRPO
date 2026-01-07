@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/🏠%20Home%20Page-FT--GRPO-ff7f0e?style=for-the-badge">
   </a>
   &nbsp;
-  <a href="https://arxiv.org/abs/XXXX.XXXXX">
+  <a href="https://arxiv.org/abs/2601.02983">
     <img src="https://img.shields.io/badge/📄%20Paper-arXiv-b31b1b?style=for-the-badge">
   </a>
   &nbsp;
