@@ -1,0 +1,29 @@
+MASTER_PORT=29200 NPROC_PER_NODE=8 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 swift sft \
+        --model yourpath/huggingface/Qwen2.5-Omni-3B \
+        --output_dir yourpath/ckpt_speech/qwen2.5-omni-3b-s1 \
+        --dataset label/FT-GRPO/1-SFT/19la_train.json \
+        --val_dataset label/FT-GRPO/1-SFT/19la_dev.json \
+        --system yourpath/prompt/FT-GRPO.txt \
+        --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
+        --torch_dtype bfloat16 \
+        --freeze_llm false \
+        --freeze_aligner false \
+        --freeze_vit false \
+        --max_length 768 \
+        --dataloader_num_workers 8 \
+        --target_modules all-linear \
+        --save_strategy epoch \
+        --logging_steps 100 \
+        --per_device_train_batch_size 16 \
+        --per_device_eval_batch_size 8 \
+        --gradient_accumulation_steps 1 \
+        --save_total_limit 10 \
+        --lazy_tokenize true \
+        --weight_decay 0.1 \
+        --learning_rate 1e-5 \
+        --train_type lora \
+        --warmup_ratio 0.01 \
+        --num_train_epochs 3 \
+        --lora_rank 64 \
+        --lora_alpha 16 \
+        --deepspeed zero2 
