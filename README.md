@@ -78,7 +78,7 @@ Upon downloading all datasets, please arrange them in accordance with the direct
 │   │   ├── test_track1
 │   │   │   └── *.wav (4,000 audio files) 
 ```
-The above file directory is provided for reference only. For the actual loading path, please refer to `/label`. Please match the paths in `/label/*.json` with your own local file paths. All paths in the JSON file have been anonymized as `“yourpath”`.
+The above file directory is provided for reference only. For the actual loading path, please refer to the JSON file of label. Please match the paths in JSON with your own local file paths. All paths in the JSON file have been anonymized as `“yourpath”`.
 
 ## 2. Environment Setup
 ```
@@ -123,8 +123,27 @@ After obtaining result.jsonl, compute the ACC by comparing the <answer> field in
 python script/eval_grpo.py
 ```
 
+## 6. Other Experiments （real/fake SFT）
+We provide the training script for binary_sft used in the paper, along with the corresponding [labels](https://huggingface.co/datasets/xieyuankun/FT-GRPO/tree/main/binary-SFT). You may refer to these resources to conduct training. For evaluation, simply use the same testing script in `script/test.sh`.
+```
+bash script/binary_sft.sh
+```
+
+
+
 ## 🙏 Acknowledgements
 
 We would like to express our sincere gratitude to the [ms-swift](https://github.com/modelscope/swift) framework. Its efficient fine-tuning and reinforcement learning capabilities were instrumental in the development and optimization of this project.
 
----
+
+## 📝 Citation
+
+If you find this repository is useful to your research, please cite it as follows:
+```
+@article{xie2026interpretable,
+  title={Interpretable All-Type Audio Deepfake Detection with Audio LLMs via Frequency-Time Reinforcement Learning},
+  author={Xie, Yuankun and Guo, Xiaoxuan and Zhou, Jiayi and Wang, Tao and Liu, Jian and Fu, Ruibo and Wang, Xiaopeng and Cheng, Haonan and Ye, Long},
+  journal={arXiv preprint arXiv:2601.02983},
+  year={2026}
+}
+```

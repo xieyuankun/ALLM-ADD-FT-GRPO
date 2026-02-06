@@ -1,0 +1,29 @@
+MASTER_PORT=29200 NPROC_PER_NODE=8 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 swift sft \
+        --model yourpath/huggingface/Qwen2.5-Omni-3B \
+        --output_dir ourpath/ckpt_speech/qwen2.5-omni-3b-bsft\
+        --dataset label/binary-SFT/19_train.json \
+        --val_dataset label/binary-SFT/19_dev.json \
+        --system /prompt/binary_sft.txt \
+        --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
+        --torch_dtype bfloat16 \
+        --max_length 512 \
+        --freeze_llm false \
+        --freeze_aligner false \
+        --freeze_vit false \
+        --dataloader_num_workers 8 \
+        --target_modules all-linear \
+        --save_strategy epoch \
+        --logging_steps 100 \
+        --per_device_train_batch_size 16 \
+        --per_device_eval_batch_size 8 \
+        --gradient_accumulation_steps 1 \
+        --save_total_limit 10 \
+        --lazy_tokenize true \
+        --weight_decay 0.1 \
+        --learning_rate 1e-5 \
+        --train_type lora \
+        --warmup_ratio 0.01 \
+        --num_train_epochs 5 \
+        --lora_rank 64 \
+        --lora_alpha 16 \
+        --deepspeed zero2 
